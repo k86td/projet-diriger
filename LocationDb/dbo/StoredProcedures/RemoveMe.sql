@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[RemoveMe]
+(
+	[Id] INT NOT NULL PRIMARY KEY
+)
