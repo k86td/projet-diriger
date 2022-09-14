@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Infra.Dal.Abstractions
 {
-    internal class RemoveMe
+    internal class RemoveMe2
     {
     }
 }
