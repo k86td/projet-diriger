@@ -63,7 +63,17 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Views\RemoveMe.sql" />
-    <Build Include="dbo\Tables\RemoveMe.sql" />
     <Build Include="dbo\StoredProcedures\RemoveMe.sql" />
+    <Build Include="dbo\Tables\Roles.sql" />
+    <Build Include="dbo\Tables\Usagers.sql" />
+    <Build Include="dbo\Tables\Offres.sql" />
+    <Build Include="dbo\Tables\TypesOffres.sql" />
+    <Build Include="dbo\Tables\CategoriesOffres.sql" />
+    <Build Include="dbo\Tables\Conversations.sql" />
+    <Build Include="dbo\Tables\Ratings.sql" />
+    <Build Include="dbo\Tables\DemandesOffres.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LocationDb.publish.xml" />
   </ItemGroup>
 </Project>
