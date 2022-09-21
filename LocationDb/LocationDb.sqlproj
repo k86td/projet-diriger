@@ -55,13 +55,13 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="dbo" />
-    <Folder Include="dbo\StoredProcedures" />
     <Folder Include="dbo\Tables" />
     <Folder Include="dbo\Views" />
+    <Folder Include="dbo\StoredProcedures" />
+    <Folder Include="dbo\StoredProcedures\UsagersProcedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Views\RemoveMe.sql" />
-    <Build Include="dbo\StoredProcedures\RemoveMe.sql" />
     <Build Include="dbo\Tables\Roles.sql" />
     <Build Include="dbo\Tables\Usagers.sql" />
     <Build Include="dbo\Tables\Offres.sql" />
@@ -72,6 +72,10 @@
     <Build Include="dbo\Tables\DemandesOffres.sql" />
     <Build Include="dbo\Tables\Vendeurs.sql" />
     <Build Include="dbo\Tables\Demandes.sql" />
+    <Build Include="dbo\StoredProcedures\RemoveMe.sql" />
+    <Build Include="dbo\StoredProcedures\UsagersProcedures\GetUsager.sql" />
+    <Build Include="dbo\StoredProcedures\UsagersProcedures\DeleteUsager.sql" />
+    <Build Include="dbo\StoredProcedures\UsagersProcedures\UpdateUsager.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LocationDb.publish.xml" />

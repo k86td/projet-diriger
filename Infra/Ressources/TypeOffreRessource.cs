@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Infra.Ressources
 {
-    public class CategoriesOffresRessource
+    public class TypeOffreRessource
     {
-        public int IdType { get; private set; }
+        public int Id { get; private set; }
         public string Nom { get; set; }
     }
 }

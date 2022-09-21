@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Infra.Ressources
 {
-    public class DemandesRessource
+    public class RatingRessource
     {
+        public int IdOffre { get; private set; }
         public int IdUsager { get; private set; }
-        public DateTime Date { get; set; }
+        public int Rating { get; set; }
     }
 }
