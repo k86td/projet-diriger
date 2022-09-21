@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[Demandes]
+(
+	IdUsager INT PRIMARY KEY NOT NULL,
+	[Date] DATETIME2(7) DEFAULT GETDATE() NOT NULL,
+
+	CONSTRAINT fk_demandes_usagers FOREIGN KEY (IdUsager) REFERENCES Usagers(Id)
+)

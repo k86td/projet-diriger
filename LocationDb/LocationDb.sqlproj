@@ -72,6 +72,8 @@
     <Build Include="dbo\Tables\Conversations.sql" />
     <Build Include="dbo\Tables\Ratings.sql" />
     <Build Include="dbo\Tables\DemandesOffres.sql" />
+    <Build Include="dbo\Tables\Vendeurs.sql" />
+    <Build Include="dbo\Tables\Demandes.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LocationDb.publish.xml" />
