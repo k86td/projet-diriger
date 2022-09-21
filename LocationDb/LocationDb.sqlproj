@@ -75,6 +75,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="LocationDb.publish.xml" />
-    <None Include="LocationDb1.publish.publish.xml" />
   </ItemGroup>
 </Project>
