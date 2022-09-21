@@ -9,8 +9,7 @@
     <ProjectGuid>{4eea2eb1-28eb-47c2-bd34-47572babe246}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
-    <RootPath>
-    </RootPath>
+    <RootPath />
     <RootNamespace>LocationDb</RootNamespace>
     <AssemblyName>LocationDb</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
@@ -48,7 +47,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
-    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
     <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
     <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
   </PropertyGroup>
@@ -75,5 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="LocationDb.publish.xml" />
+    <None Include="LocationDb1.publish.publish.xml" />
   </ItemGroup>
 </Project>

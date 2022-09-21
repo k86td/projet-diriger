@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra", "Infra\Infra.csproj", "{6F7749D6-92F4-49AA-BEB9-BFF29441F0EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{355E8AF0-E2B4-4DC7-B61F-01B49D1B8305}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{355E8AF0-E2B4-4DC7-B61F-01B49D1B8305}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "ClientSide", "ClientSide\ClientSide.esproj", "{5F835331-51FD-4895-9438-D111D780C9DD}"
 EndProject
