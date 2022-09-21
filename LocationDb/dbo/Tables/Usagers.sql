@@ -8,5 +8,6 @@
 	Telephone varchar(15) NOT NULL,
 	[Password] Varchar(100) NOT NULL,
 	Adresse Varchar(100) NOT NULL,
+
 	PRIMARY KEY (Id)
 )
