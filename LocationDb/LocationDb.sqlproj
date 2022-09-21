@@ -59,6 +59,9 @@
     <Folder Include="dbo\Views" />
     <Folder Include="dbo\StoredProcedures" />
     <Folder Include="dbo\StoredProcedures\UsagersProcedures" />
+    <Folder Include="dbo\StoredProcedures\OffresProcedures" />
+    <Folder Include="dbo\StoredProcedures\ConverstationsProcedures" />
+    <Folder Include="dbo\StoredProcedures\Roles" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Views\RemoveMe.sql" />
@@ -72,10 +75,20 @@
     <Build Include="dbo\Tables\DemandesOffres.sql" />
     <Build Include="dbo\Tables\Vendeurs.sql" />
     <Build Include="dbo\Tables\Demandes.sql" />
-    <Build Include="dbo\StoredProcedures\RemoveMe.sql" />
     <Build Include="dbo\StoredProcedures\UsagersProcedures\GetUsager.sql" />
     <Build Include="dbo\StoredProcedures\UsagersProcedures\DeleteUsager.sql" />
     <Build Include="dbo\StoredProcedures\UsagersProcedures\UpdateUsager.sql" />
+    <Build Include="dbo\StoredProcedures\UsagersProcedures\AddUsager.sql" />
+    <Build Include="dbo\StoredProcedures\OffresProcedures\AddOffre.sql" />
+    <Build Include="dbo\StoredProcedures\OffresProcedures\DeleteOffre.sql" />
+    <Build Include="dbo\StoredProcedures\OffresProcedures\UpdateOffre.sql" />
+    <Build Include="dbo\StoredProcedures\OffresProcedures\GetOffre.sql" />
+    <Build Include="dbo\StoredProcedures\ConverstationsProcedures\AddConversation.sql" />
+    <Build Include="dbo\StoredProcedures\ConverstationsProcedures\DeleteConversation.sql" />
+    <Build Include="dbo\StoredProcedures\Roles\AddRole.sql" />
+    <Build Include="dbo\StoredProcedures\Roles\DeleteRole.sql" />
+    <Build Include="dbo\StoredProcedures\Roles\GetAllRoles.sql" />
+    <Build Include="dbo\StoredProcedures\Roles\UpdateRole.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LocationDb.publish.xml" />
