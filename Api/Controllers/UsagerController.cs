@@ -22,6 +22,13 @@ namespace Api.Controllers
             return await _usagersData.Get();
         }
 
+        [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<UsagerRessource?> Get(int id)
+        {
+            return await _usagersData.Get(id);
+        }
+
         [HttpPost]
         public async void Post (UsagerRessource usager)
         {
@@ -32,6 +39,12 @@ namespace Api.Controllers
         public async void Delete (int id)
         {
             await _usagersData.Delete(id);
+        }
+
+        [HttpPut("{id}")]
+        public async void Put (int id, [FromBody] UsagerRessource usager)
+        {
+            await _usagersData.Edit(id, usager);
         }
     }
 }

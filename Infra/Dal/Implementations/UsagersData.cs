@@ -50,6 +50,7 @@ namespace Infra.Dal.Implementations
             await _db.ExecuteFromSP("dbo.UpdateUsager", new
             {
                 Id = id,
+                modification.IdRole,
                 modification.Nom,
                 modification.Prenom,
                 modification.Email,
@@ -67,7 +68,7 @@ namespace Infra.Dal.Implementations
         public async Task<UsagerRessource?> Get(int id)
         {
             var usagers = await _db.QueryFromSP<UsagerRessource, dynamic>("dbo.GetUsager", new { Id = id });
-            return usagers.First();
+            return usagers.FirstOrDefault();
         }
     }
 }

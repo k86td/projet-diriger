@@ -24,7 +24,7 @@ namespace Api.Controllers
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<RoleRessource?> Get(int id)
         {
             return await _rolesData.Get(id);
