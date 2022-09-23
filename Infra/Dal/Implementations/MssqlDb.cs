@@ -11,7 +11,7 @@ namespace Infra.Dal.Implementations
 
         public MssqlDb( IConfiguration config, string? connectionStringName = "Default" )
         {
-            _connectionString = config.GetConnectionString(connectionStringName);
+            _connectionString = config.GetConnectionString( connectionStringName );
         }
 
         public async Task<int> ExecuteFromSP<P>(string storedProcedures, P parameters)

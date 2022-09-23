@@ -12,29 +12,41 @@ namespace Infra.Dal.Implementations
             _db = db;
         }
 
-        public RoleRessource Create(RoleRessource entity)
+        public async Task Create(RoleRessource entity)
         {
-            throw new NotImplementedException();
+            await _db.ExecuteFromSP("dbo.AddRoles", new { entity.Nom });
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            await _db.ExecuteFromSP("dbo.DeleteRole", new { Id = id });
         }
 
-        public RoleRessource Edit(int id, RoleRessource modification)
+        public async Task Edit(int id, RoleRessource modification)
         {
-            throw new NotImplementedException();
+            await _db.ExecuteFromSP("dbo.UpdateRole", new
+            {
+                Id = id,
+                modification.Nom
+            });
         }
 
-        public ICollection<RoleRessource> Get()
+        public async Task<ICollection<RoleRessource>> Get()
         {
-            throw new NotImplementedException();
+            return await _db.QueryFromSP<RoleRessource, dynamic>("dbo.GetAllRoles", 
+                new { });
         }
 
-        public RoleRessource Get(int id)
+        public async Task<RoleRessource?> Get(int id)
         {
-            throw new NotImplementedException();
+            var roles = await Get();
+            var selectedRole = roles.Where(r => r.Id == id).FirstOrDefault();
+
+            if (selectedRole == null)
+                return null;
+
+            return selectedRole;
+
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿CREATE PROCEDURE [dbo].[AddUsager]
-	@Id int,
 	@IdRole int,
 	@Nom varchar(50),
 	@Prenom varchar(50),

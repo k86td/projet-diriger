@@ -85,7 +85,7 @@
     <Build Include="dbo\StoredProcedures\OffresProcedures\GetOffre.sql" />
     <Build Include="dbo\StoredProcedures\ConverstationsProcedures\AddConversation.sql" />
     <Build Include="dbo\StoredProcedures\ConverstationsProcedures\DeleteConversation.sql" />
-    <Build Include="dbo\StoredProcedures\Roles\AddRole.sql" />
+    <Build Include="dbo\StoredProcedures\Roles\AddRoles.sql" />
     <Build Include="dbo\StoredProcedures\Roles\DeleteRole.sql" />
     <Build Include="dbo\StoredProcedures\Roles\GetAllRoles.sql" />
     <Build Include="dbo\StoredProcedures\Roles\UpdateRole.sql" />

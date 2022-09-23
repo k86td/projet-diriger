@@ -11,10 +11,13 @@
   "profiles": {
     "Api": {
       "commandName": "Project",
+      "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
+      "sqlDebugging": true,
+      "hotReloadEnabled": false,
       "applicationUrl": "https://localhost:7103;http://localhost:5103",
       "dotnetRunMessages": true
     },
