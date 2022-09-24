@@ -10,7 +10,7 @@ namespace Infra.Models
     public class UsagerModel
     {
         public int Id { get; set; }
-        public RoleModel Role { get; set; }
+        public string role { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public string Email { get; set; }
