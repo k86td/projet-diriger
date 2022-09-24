@@ -49,14 +49,21 @@ namespace Infra.Dal.Implementations
                 });
         }
 
-        public Task<ICollection<CategoriesOffresRessource>> Get()
+        public async Task<ICollection<CategoriesOffresRessource>> Get()
         {
-            throw new NotImplementedException();
+            return await _db.QueryFromSql<CategoriesOffresRessource, dynamic?>(
+                "SELECT * FROM dbo.CategoriesOffres", null);
         }
 
-        public Task<CategoriesOffresRessource?> Get(int id)
+        public async Task<CategoriesOffresRessource?> Get(int id)
         {
-            throw new NotImplementedException();
+            var categoriesOffres = await _db.QueryFromSql<CategoriesOffresRessource, dynamic>(
+                "SELECT * FROM dbo.CategoriesOffres WHERE Id = @Id",
+                new
+                {
+                    Id = id
+                });
+            return categoriesOffres.FirstOrDefault();
         }
     }
 }
