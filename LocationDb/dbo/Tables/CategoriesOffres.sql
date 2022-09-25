@@ -1,9 +1,10 @@
 ﻿CREATE TABLE [dbo].[CategoriesOffres]
 (
+	Id INT NOT NULL IDENTITY(1,1),
 	IdType int NOT NULL,
 	Nom Varchar(30) NOT NULL UNIQUE,
 	
-	PRIMARY KEY(IdType),
+	PRIMARY KEY(Id),
 
 	CONSTRAINT FK_TypesOffres FOREIGN KEY (IdType) REFERENCES TypesOffres(Id) ON DELETE CASCADE
 )

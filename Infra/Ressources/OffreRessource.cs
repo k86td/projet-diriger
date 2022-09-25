@@ -11,10 +11,13 @@ namespace Infra.Ressources
     public class OffreRessource
     {
         public int Id { get; private set; }
+        public string Nom { get; set; }
         public int IdVendeur { get; set; }
         public float Prix { get; set; }
         public DateTime Date { get; set; }
         public string Coordonner { get; set; }
+        public int IdCategorieOffre { get; set; }
+        public int IdTypeOffre { get; set; }
     }
 }
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.

@@ -43,6 +43,7 @@ builder.Services.AddCors(options =>
 // configure our services
 builder.Services
     .AddSingleton(configuration)
+    .AddSingleton<IOffreData, OffreData>()
     .AddSingleton<ITypeOffreData, TypeOffreData>()
     .AddSingleton<ICategorieOffreData, CategorieOffreData>()
     .AddSingleton<IDatabase, MssqlDb>()
