@@ -28,9 +28,23 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowEverywhere",
+        policy =>
+        {
+            policy
+                .AllowAnyMethod()
+                .AllowAnyOrigin()
+                .AllowAnyHeader();
+        });
+});
+
 // configure our services
 builder.Services
     .AddSingleton(configuration)
+    .AddSingleton<ITypeOffreData, TypeOffreData>()
+    .AddSingleton<ICategorieOffreData, CategorieOffreData>()
     .AddSingleton<IDatabase, MssqlDb>()
     .AddSingleton<IRolesData, RolesData>()
     .AddSingleton<IUsagersData, UsagersData>();
@@ -52,6 +66,8 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowEverywhere");
 
 app.UseAuthentication();
 app.UseAuthorization();
