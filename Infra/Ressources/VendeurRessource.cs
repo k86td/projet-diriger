@@ -8,8 +8,7 @@ namespace Infra.Ressources
 {
     public class VendeurRessource
     {
-        public int Id { get; private set; }
         public int IdUsager { get; set; }
-        public DateTime DateAccepte { get; set; }
+        public DateTime DateAccepter { get; set; }
     }
 }

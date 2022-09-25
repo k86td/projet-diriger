@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 
 using Infra.Dal.Interfaces;
-using Infra.Ressources;
 using Microsoft.AspNetCore.Cors;
+using Infra.Ressources;
 
 namespace Api.Controllers
 {

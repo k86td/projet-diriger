@@ -1,6 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[AddConversation]
-	@param1 int = 0,
-	@param2 int
+	@IdAuteur int,
+	@IdDestinataire int,
+	@Contenu varchar(100),
+	@Date Datetime
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	INSERT INTO dbo.Conversations (IdAuteur,IdDestinataire,Contenu,[Date])
+	VALUES (@IdAuteur, @IdDestinataire, @Contenu, @Date);
+END
