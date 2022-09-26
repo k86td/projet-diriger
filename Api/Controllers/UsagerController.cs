@@ -27,6 +27,14 @@ namespace Api.Controllers
             _config = config;
         }
 
+        [HttpGet("MonUsager")]
+        [Authorize]
+        public async Task<UsagerRessource> GetCurrentUser ()
+        {
+            var usager = await _usagersData.Get();
+            return usager.Where(u => u.Email == User.Claims.Where(c => c.Type == ClaimTypes.Email).First().Value).First();
+        }
+
         [HttpGet]
         public async Task<IEnumerable<UsagerRessource>> Get()
         {
@@ -86,6 +94,7 @@ namespace Api.Controllers
 
             Claim[] claims = new[]
             {
+                new Claim("Id", user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.Nom),
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.Role, role.Nom)
