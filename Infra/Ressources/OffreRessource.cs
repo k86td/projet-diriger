@@ -14,7 +14,7 @@ namespace Infra.Ressources
         public string Nom { get; set; }
         public int IdVendeur { get; set; }
         public float Prix { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime Date { get; private set; }
         public string Coordonner { get; set; }
         public int? IdCategorieOffre { get; set; }
         public int IdTypeOffre { get; set; }
