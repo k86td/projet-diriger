@@ -20,7 +20,7 @@ namespace Infra.Dal.Implementations
 
         public async Task Create(OffreRessource entity)
         {
-            await _db.ExecuteFromSql("INSERT INTO dbo.Offres (Nom, IdVendeur, Prix, Date, Coordonner, IdCategorieOffre, IdTypeOffre) VALUES (@Nom, @IdVendeur, @Prix, @Date, @Coordonner)",
+            await _db.ExecuteFromSql("INSERT INTO dbo.Offres (Nom, IdVendeur, Prix, Date, Coordonner, IdCategorieOffre, IdTypeOffre) VALUES (@Nom, @IdVendeur, @Prix, @Date, @Coordonner, @IdCategorieOffre, @IdTypeOffre)",
                 new
                 {
                     entity.Nom,

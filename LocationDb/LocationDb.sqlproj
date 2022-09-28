@@ -66,6 +66,7 @@
     <Folder Include="dbo\StoredProcedures\Vendeurs" />
     <Folder Include="dbo\StoredProcedures\Ratings" />
     <Folder Include="dbo\StoredProcedures\Demandes" />
+    <Folder Include="dbo\StoredProcedures\Voitures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Views\RemoveMe.sql" />
@@ -111,6 +112,11 @@
     <Build Include="dbo\StoredProcedures\ConverstationsProcedures\GetSentByUserConversations.sql" />
     <Build Include="dbo\StoredProcedures\Demandes\AddDemande.sql" />
     <Build Include="dbo\StoredProcedures\Demandes\DeleteDemande.sql" />
+    <Build Include="dbo\Tables\Voitures.sql" />
+    <Build Include="dbo\StoredProcedures\Voitures\CreateVoiture.sql" />
+    <Build Include="dbo\StoredProcedures\Voitures\EditVoiture.sql" />
+    <Build Include="dbo\StoredProcedures\Voitures\DeleteVoiture.sql" />
+    <Build Include="dbo\StoredProcedures\Voitures\GetVoiture.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LocationDb.publish.xml" />
