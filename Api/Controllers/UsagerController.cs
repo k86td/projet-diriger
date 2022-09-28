@@ -20,7 +20,7 @@ namespace Api.Controllers
         private readonly IRolesData _roleData;
         private readonly IConfiguration _config;
 
-        public UsagerController(IUsagersData usagersData, IRolesData roleData, IConfiguration config)
+        public UsagerController(IUsagersData usagersData, IRolesData roleData, IConfiguration config, ILogger<UsagerController> logger)
         {
             _usagersData = usagersData;
             _roleData = roleData;
@@ -36,6 +36,7 @@ namespace Api.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IEnumerable<UsagerRessource>> Get()
         {
             return await _usagersData.Get();

@@ -13,10 +13,22 @@ namespace Api.Controllers
         private readonly IVoitureData _voitureData;
         private readonly ILogger<VoitureController> _logger;
 
-        public VoitureController(IVoitureData voitureData, ILogger<VoitureController> logger)
+        public VoitureController(IVoitureData voitureData, ITypeOffreData typeOffreData, ILogger<VoitureController> logger)
         {
             _voitureData = voitureData;
             _logger = logger;
+
+            // create a custom attribute for this
+            var type = typeOffreData.Get().Result.Where(t => t.Nom == "Voiture").FirstOrDefault();
+            if (type == null)
+            {
+                var typeVoiture = new TypeOffreRessource
+                {
+                    Nom = "Voiture"
+                };
+                typeOffreData.Create(typeVoiture);
+            }
+
         }
 
         [HttpGet]
@@ -33,16 +45,18 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public async void Post (VoitureRessource voiture)
+        public async Task<IActionResult> Post (VoitureRessource voiture)
         {
             try
             {
                 await _voitureData.Create(voiture);
+                return Ok();
             }
             catch (Exception ex)
             {
                 _logger.LogCritical("Fatal exception in POST:VoitureController: " + 
                     ex.Message);
+                return BadRequest();
             }
         }
 

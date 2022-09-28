@@ -16,12 +16,20 @@ namespace Infra.Dal.Implementations
             _logger = logger;
 
             int? nullableRoleId = rolesData.Get().Result.Where(r => r.Nom == "NonValidatedUser").FirstOrDefault()?.Id;
-
             if (nullableRoleId == null)
             {
-                _logger.LogCritical("We couldn't find a role with a name of 'NonValidatedUser'. Please create it!");
-                throw new NullReferenceException("The role NonValidatedUser couldn't be found");
+                _logger.LogCritical("We couldn't find a role with a name of 'NonValidatedUser'. We created it for you");
+                var roleNonValidatedUser = new RoleRessource
+                {
+                    Nom = "NonValidatedUser"
+                };
+                rolesData.Create(roleNonValidatedUser);
+
+                nullableRoleId = rolesData.Get().Result.Where(r => r.Nom == "NonValidatedUser").FirstOrDefault()?.Id;
             }
+
+            if (nullableRoleId == null)
+                throw new ArgumentNullException("Couldn't create NonValidatedUser role!");
 
             _defaultRoleId = nullableRoleId.Value;
         }
