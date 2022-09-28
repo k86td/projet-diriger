@@ -31,6 +31,7 @@ namespace Infra.Dal.Implementations
                 entity.IdOffre,
                 entity.Couleur,
                 entity.Marque,
+                entity.Modele,
                 entity.Odometre,
                 entity.TypeVehicule,
                 entity.NombrePorte,

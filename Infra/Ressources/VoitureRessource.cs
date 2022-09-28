@@ -12,6 +12,7 @@ namespace Infra.Ressources
         public int IdOffre { get; set; }
         public string Couleur { get; set; }
         public string Marque { get; set; }
+        public string Modele { get; set; }
         public int Odometre { get; set; }
         public string TypeVehicule { get; set; }
         public int NombrePorte { get; set; }

@@ -3,6 +3,7 @@
 	[IdOffre] INT NOT NULL PRIMARY KEY,
 	Couleur VARCHAR(30) NOT NULL,
 	Marque VARCHAR(30) NOT NULL,
+	Modele VARCHAR(30) NOT NULL,
 	Odometre INT NOT NULL,
 	TypeVehicule VARCHAR(30) NOT NULL,
 	NombrePorte INT NOT NULL,
