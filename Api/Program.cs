@@ -48,7 +48,8 @@ builder.Services
     .AddSingleton<ICategorieOffreData, CategorieOffreData>()
     .AddSingleton<IDatabase, MssqlDb>()
     .AddSingleton<IRolesData, RolesData>()
-    .AddSingleton<IUsagersData, UsagersData>();
+    .AddSingleton<IUsagersData, UsagersData>()
+    .AddSingleton<IDemandesData, DemandesData>();
 
 // Add services to the container.
 builder.Services.AddControllers();

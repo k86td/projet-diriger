@@ -1,7 +1,6 @@
 ﻿using Infra.Dal.Interfaces;
 using Infra.Ressources;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Api.Controllers
 {

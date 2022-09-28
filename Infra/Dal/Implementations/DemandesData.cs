@@ -1,10 +1,6 @@
 ﻿using Infra.Dal.Interfaces;
 using Infra.Ressources;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Infra.Dal.Implementations
 {
@@ -19,12 +15,12 @@ namespace Infra.Dal.Implementations
 
         public async Task Create(DemandesRessource entity)
         {
-            await _db.ExecuteFromSP("AddDemande", new { entity.IdUsager });
+            await _db.ExecuteFromSP("dbo.AddDemande", new { IdUser = entity.IdUsager });
         }
 
         public async Task Delete(int id)
         {
-            await _db.ExecuteFromSP("DeleteDemande", new { id });
+            await _db.ExecuteFromSP("dbo.DeleteDemande", new { id });
         }
 
         public Task Edit(int id, DemandesRessource modification)
