@@ -62,15 +62,24 @@ namespace Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async void Put (int id, [FromBody] UsagerRessource usager)
+        public async void Put (int id, [FromBody] UsagerRessourceEdit usagerEdit)
         {
             // CLEANUP THIS
-            var users = await _usagersData.Get();
-            var user = users.Where(u => u.Id == id).FirstOrDefault();
+            var user = await _usagersData.Get(id);
 
             if (user == null)
-                throw new ArgumentNullException("User is null!");
+                throw new ArgumentNullException("User cannot be null");
 
+            UsagerRessource usager = new UsagerRessource
+            {
+                Password = user.Password,
+                Adresse = usagerEdit.Adresse,
+                Email = usagerEdit.Email,
+                Prenom = usagerEdit.Prenom,
+                Nom = usagerEdit.Nom,
+                Telephone = usagerEdit.Telephone
+            };
+            
             usager.Password = user.Password;
             await _usagersData.Edit(id, usager);
         }
