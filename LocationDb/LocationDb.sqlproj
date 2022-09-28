@@ -62,6 +62,10 @@
     <Folder Include="dbo\StoredProcedures\OffresProcedures" />
     <Folder Include="dbo\StoredProcedures\ConverstationsProcedures" />
     <Folder Include="dbo\StoredProcedures\Roles" />
+    <Folder Include="dbo\StoredProcedures\TypesOffre" />
+    <Folder Include="dbo\StoredProcedures\Vendeurs" />
+    <Folder Include="dbo\StoredProcedures\Ratings" />
+    <Folder Include="dbo\StoredProcedures\Demandes" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Views\RemoveMe.sql" />
@@ -89,6 +93,24 @@
     <Build Include="dbo\StoredProcedures\Roles\DeleteRole.sql" />
     <Build Include="dbo\StoredProcedures\Roles\GetAllRoles.sql" />
     <Build Include="dbo\StoredProcedures\Roles\UpdateRole.sql" />
+    <Build Include="dbo\StoredProcedures\TypesOffre\AddTypeOffre.sql" />
+    <Build Include="dbo\StoredProcedures\TypesOffre\DeleteTypeOffre.sql" />
+    <Build Include="dbo\StoredProcedures\TypesOffre\UpdateTypeOffre.sql" />
+    <Build Include="dbo\StoredProcedures\TypesOffre\GetAllTypesOffre.sql" />
+    <Build Include="dbo\StoredProcedures\Vendeurs\AddVendeur.sql" />
+    <Build Include="dbo\StoredProcedures\Vendeurs\DeleteVendeur.sql" />
+    <Build Include="dbo\StoredProcedures\Vendeurs\EditVendeur.sql" />
+    <Build Include="dbo\StoredProcedures\Vendeurs\GetAllVendeurs.sql" />
+    <Build Include="dbo\StoredProcedures\Ratings\AddRating.sql" />
+    <Build Include="dbo\StoredProcedures\Ratings\UpdateRating.sql" />
+    <Build Include="dbo\StoredProcedures\Ratings\DeleteRating.sql" />
+    <Build Include="dbo\StoredProcedures\Ratings\GetAllOfferRatings.sql" />
+    <Build Include="dbo\StoredProcedures\Ratings\GetAllRatings.sql" />
+    <Build Include="dbo\StoredProcedures\ConverstationsProcedures\UpdateConversation.sql" />
+    <Build Include="dbo\StoredProcedures\ConverstationsProcedures\GetAllConversations.sql" />
+    <Build Include="dbo\StoredProcedures\ConverstationsProcedures\GetSentByUserConversations.sql" />
+    <Build Include="dbo\StoredProcedures\Demandes\AddDemande.sql" />
+    <Build Include="dbo\StoredProcedures\Demandes\DeleteDemande.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LocationDb.publish.xml" />
