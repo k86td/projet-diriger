@@ -30,13 +30,13 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ICollection<OffreRessource>> Get ([FromQuery] int[] typeId, [FromQuery] int[] categorieId)
+        public async Task<ICollection<OffreRessource>> Get ([FromQuery] int[] typeId, [FromQuery] int?[] categorieId)
         {
             ICollection<OffreRessource> offres = await _offreData.Get();
 
             if (typeId.Length > 0)
                 offres = offres.Where(o => typeId.Contains(o.IdTypeOffre)).ToList();
-            if (categorieId.Length > 0)
+            if (categorieId?.Length > 0)
                 offres = offres.Where(o => categorieId.Contains(o.IdCategorieOffre)).ToList();
 
             return offres;
