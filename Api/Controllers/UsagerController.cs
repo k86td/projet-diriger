@@ -28,7 +28,6 @@ namespace Api.Controllers
         }
 
         [HttpGet("MonUsager")]
-        [Authorize]
         public async Task<UsagerRessource> GetCurrentUser ()
         {
             var usager = await _usagersData.Get();
@@ -63,8 +62,25 @@ namespace Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async void Put (int id, [FromBody] UsagerRessource usager)
+        public async void Put (int id, [FromBody] UsagerRessourceEdit usagerEdit)
         {
+            // CLEANUP THIS
+            var user = await _usagersData.Get(id);
+
+            if (user == null)
+                throw new ArgumentNullException("User cannot be null");
+
+            UsagerRessource usager = new UsagerRessource
+            {
+                Password = user.Password,
+                Adresse = usagerEdit.Adresse,
+                Email = usagerEdit.Email,
+                Prenom = usagerEdit.Prenom,
+                Nom = usagerEdit.Nom,
+                Telephone = usagerEdit.Telephone
+            };
+            
+            usager.Password = user.Password;
             await _usagersData.Edit(id, usager);
         }
 
