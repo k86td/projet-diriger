@@ -28,7 +28,6 @@ namespace Api.Controllers
         }
 
         [HttpGet("MonUsager")]
-        [Authorize]
         public async Task<UsagerRessource> GetCurrentUser ()
         {
             var usager = await _usagersData.Get();
@@ -65,6 +64,14 @@ namespace Api.Controllers
         [HttpPut("{id}")]
         public async void Put (int id, [FromBody] UsagerRessource usager)
         {
+            // CLEANUP THIS
+            var users = await _usagersData.Get();
+            var user = users.Where(u => u.Id == id).FirstOrDefault();
+
+            if (user == null)
+                throw new ArgumentNullException("User is null!");
+
+            usager.Password = user.Password;
             await _usagersData.Edit(id, usager);
         }
 
