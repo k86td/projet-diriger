@@ -9,7 +9,8 @@ namespace Infra.Ressources
 {
     public class CategoriesOffresRessource
     {
-        public int IdType { get; private set; }
+        public int Id { get; set; }
+        public int IdType { get; set; }
         public string Nom { get; set; }
     }
 }

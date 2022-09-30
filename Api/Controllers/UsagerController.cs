@@ -20,14 +20,22 @@ namespace Api.Controllers
         private readonly IRolesData _roleData;
         private readonly IConfiguration _config;
 
-        public UsagerController(IUsagersData usagersData, IRolesData roleData, IConfiguration config)
+        public UsagerController(IUsagersData usagersData, IRolesData roleData, IConfiguration config, ILogger<UsagerController> logger)
         {
             _usagersData = usagersData;
             _roleData = roleData;
             _config = config;
         }
 
+        [HttpGet("MonUsager")]
+        public async Task<UsagerRessource> GetCurrentUser ()
+        {
+            var usager = await _usagersData.Get();
+            return usager.Where(u => u.Email == User.Claims.Where(c => c.Type == ClaimTypes.Email).First().Value).First();
+        }
+
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IEnumerable<UsagerRessource>> Get()
         {
             return await _usagersData.Get();
@@ -54,8 +62,25 @@ namespace Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async void Put (int id, [FromBody] UsagerRessource usager)
+        public async void Put (int id, [FromBody] UsagerRessourceEdit usagerEdit)
         {
+            // CLEANUP THIS
+            var user = await _usagersData.Get(id);
+
+            if (user == null)
+                throw new ArgumentNullException("User cannot be null");
+
+            UsagerRessource usager = new UsagerRessource
+            {
+                Password = user.Password,
+                Adresse = usagerEdit.Adresse,
+                Email = usagerEdit.Email,
+                Prenom = usagerEdit.Prenom,
+                Nom = usagerEdit.Nom,
+                Telephone = usagerEdit.Telephone
+            };
+            
+            usager.Password = user.Password;
             await _usagersData.Edit(id, usager);
         }
 
@@ -86,6 +111,7 @@ namespace Api.Controllers
 
             Claim[] claims = new[]
             {
+                new Claim("Id", user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.Nom),
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.Role, role.Nom)

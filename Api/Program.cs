@@ -29,12 +29,29 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowEverywhere",
+        policy =>
+        {
+            policy
+                .AllowAnyMethod()
+                .AllowAnyOrigin()
+                .AllowAnyHeader();
+        });
+});
+
 // configure our services
 builder.Services
     .AddSingleton(configuration)
+    .AddSingleton<IVoitureData, VoitureData>()
+    .AddSingleton<IOffreData, OffreData>()
+    .AddSingleton<ITypeOffreData, TypeOffreData>()
+    .AddSingleton<ICategorieOffreData, CategorieOffreData>()
     .AddSingleton<IDatabase, MssqlDb>()
     .AddSingleton<IRolesData, RolesData>()
-    .AddSingleton<IUsagersData, UsagersData>();
+    .AddSingleton<IUsagersData, UsagersData>()
+    .AddSingleton<IDemandesData, DemandesData>();
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -57,6 +74,8 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 });
 
 // app.UseHttpsRedirection(); HTTPS is supported by apache2
+
+app.UseCors("AllowEverywhere");
 
 app.UseAuthentication();
 app.UseAuthorization();
