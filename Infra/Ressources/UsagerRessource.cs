@@ -11,7 +11,7 @@ namespace Infra.Ressources
     public class UsagerRessource
     {
         public int Id { get; private set; }
-        public int IdRole { get; private set; }
+        public int IdRole { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public string Email { get; set; }
