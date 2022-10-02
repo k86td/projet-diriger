@@ -21,7 +21,6 @@ namespace Infra.Dal.Implementations
             await _db.ExecuteFromSP("dbo.AddVendeur", new
             {
                 entity.IdUsager,
-                entity.DateAccepter
             });
         }
 

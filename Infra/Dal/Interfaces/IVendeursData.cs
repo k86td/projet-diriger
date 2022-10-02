@@ -1,7 +1,7 @@
 ﻿using Infra.Ressources;
 namespace Infra.Dal.Interfaces
 {
-    internal interface IVendeursData : ICrudData<VendeurRessource>
+    public interface IVendeursData : ICrudData<VendeurRessource>
     {
     }
 }

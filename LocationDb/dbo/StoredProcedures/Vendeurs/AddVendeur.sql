@@ -1,7 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[AddVendeur]
-	@IdUsager int,
-	@DateAccepter Datetime
+	@IdUsager int
 AS
 BEGIN
-	INSERT INTO dbo.Vendeurs (IdUsager, DateAccepter) VALUES (@IdUsager, @DateAccepter);
+	INSERT INTO dbo.Vendeurs (IdUsager) VALUES (@IdUsager);
 END
