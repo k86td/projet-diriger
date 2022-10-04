@@ -18,8 +18,9 @@ namespace Infra.Dal.Implementations
             _db = db;
         }
 
-        public async Task Create(CategoriesOffresRessource entity)
+        public async Task<int> Create(CategoriesOffresRessource entity)
         {
+            // TODO implement returning id on creation
             await _db.ExecuteFromSql(
                 "INSERT INTO dbo.CategoriesOffres (IdType, Nom) VALUES (@IdType, @Nom)",
                 new
@@ -27,6 +28,7 @@ namespace Infra.Dal.Implementations
                     entity.IdType,
                     entity.Nom
                 });
+            return 0;
         }
 
         public async Task Delete(int id)

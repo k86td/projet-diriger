@@ -16,12 +16,14 @@ namespace Infra.Dal.Implementations
             _db = db;
         }
 
-        public async Task Create(VendeurRessource entity)
+        public async Task<int> Create(VendeurRessource entity)
         {
+            // TODO implement returning id on creation
             await _db.ExecuteFromSP("dbo.AddVendeur", new
             {
                 entity.IdUsager,
             });
+            return 0;
         }
 
         public async Task Delete(int id)

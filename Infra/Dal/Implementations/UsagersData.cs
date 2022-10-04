@@ -25,17 +25,17 @@ namespace Infra.Dal.Implementations
                 };
                 rolesData.Create(roleNonValidatedUser);
 
-                nullableRoleId = rolesData.Get().Result.Where(r => r.Nom == "NonValidatedUser").FirstOrDefault()?.Id;
             }
-
+            
             if (nullableRoleId == null)
-                throw new ArgumentNullException("Couldn't create NonValidatedUser role!");
+                nullableRoleId = rolesData.Get().Result.Where(r => r.Nom == "NonValidatedUser").First().Id;
 
             _defaultRoleId = nullableRoleId.Value;
         }
 
-        public async Task Create(UsagerRessource entity)
+        public async Task<int> Create(UsagerRessource entity)
         {
+            // TODO implement returning id on creation
             await _db.ExecuteFromSP("dbo.AddUsager", new 
             {
                 IdRole = _defaultRoleId,
@@ -46,6 +46,7 @@ namespace Infra.Dal.Implementations
                 entity.Password,
                 entity.Adresse
             });
+            return 0;
         }
 
         public async Task Delete(int id)

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Infra.Dal.Interfaces;
 using Infra.Ressources;
+using Dapper;
 
 namespace Infra.Dal.Implementations
 {
@@ -18,18 +19,21 @@ namespace Infra.Dal.Implementations
             _db = db;
         }
 
-        public async Task Create(OffreRessource entity)
+        public async Task<int> Create(OffreRessource entity)
         {
-            await _db.ExecuteFromSql("INSERT INTO dbo.Offres (Nom, IdVendeur, Prix, Coordonner, IdCategorieOffre, IdTypeOffre) OUTPUT Inserted OUTPUT inserted.id VALUES (@Nom, @IdVendeur, @Prix, @Coordonner, @IdCategorieOffre, @IdTypeOffre)",
-                new
-                {
-                    entity.Nom,
-                    entity.IdVendeur,
-                    entity.Prix,
-                    entity.Coordonner,
-                    entity.IdCategorieOffre,
-                    entity.IdTypeOffre
-                });
+            DynamicParameters param = new();
+            param.Add("Nom", entity.Nom);
+            param.Add("IdVendeur", entity.IdVendeur, System.Data.DbType.Int64);
+            param.Add("Prix", entity.Prix, System.Data.DbType.Currency);
+            param.Add("Date", entity.Date, System.Data.DbType.DateTime2);
+            param.Add("Coordonner", entity.Coordonner);
+            param.Add("IdCategorieOffre", entity.IdCategorieOffre, System.Data.DbType.Int64);
+            param.Add("IdTypeOffre", entity.IdTypeOffre, System.Data.DbType.Int32);
+            param.Add("OffreId", dbType: System.Data.DbType.Int32, direction: System.Data.ParameterDirection.Output);
+
+            await _db.ExecuteFromSP("dbo.AddOffre", param);
+
+            return param.Get<int>("OffreId");
         }
 
         public async Task Delete(int id)

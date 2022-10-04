@@ -12,9 +12,11 @@ namespace Infra.Dal.Implementations
             _db = db;
         }
 
-        public async Task Create(RoleRessource entity)
+        public async Task<int> Create(RoleRessource entity)
         {
+            // TODO implement returning id on creation
             await _db.ExecuteFromSP("dbo.AddRoles", new { entity.Nom });
+            return 0;
         }
 
         public async Task Delete(int id)

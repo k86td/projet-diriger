@@ -12,8 +12,9 @@ namespace Infra.Dal.Implementations
             _db = db;
         }
 
-        public async Task Create(ConversationsRessource entity)
+        public async Task<int> Create(ConversationsRessource entity)
         {
+            // TODO implement returning id on creation
             await _db.ExecuteFromSP("dbo.AddConversation", new
             {
                 entity.IdAuteur,
@@ -21,6 +22,7 @@ namespace Infra.Dal.Implementations
                 entity.Contenu,
                 entity.Date
             });
+            return 0;
         }
 
         public async Task Delete(int id)

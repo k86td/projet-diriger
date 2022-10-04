@@ -40,6 +40,6 @@ namespace Infra.Dal.Interfaces
         /// </summary>
         /// <param name="entity">The entity to be created</param>
         /// <returns>The created entity</returns>
-        public Task Create(T entity);
+        public Task<int> Create(T entity);
     }
 }

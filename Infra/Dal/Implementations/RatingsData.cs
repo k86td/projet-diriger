@@ -17,14 +17,16 @@ namespace Infra.Dal.Implementations
             _db = db;
         }
 
-        public async Task Create(RatingRessource entity)
+        public async Task<int> Create(RatingRessource entity)
         {
+            // TODO implement returning id on creation
             await _db.ExecuteFromSP("dbo.AddRating", new
             {
                 entity.IdOffre,
                 entity.IdUsager,
                 entity.Rating
             });
+            return 0;
         }
 
         public async Task Edit(int id, RatingRessource modification)

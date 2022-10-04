@@ -24,8 +24,9 @@ namespace Infra.Dal.Implementations
             }
         }
 
-        public async Task Create(VoitureRessource entity)
+        public async Task<int> Create(VoitureRessource entity)
         {
+            // TODO implement returning id on creation
             await _db.ExecuteFromSP("dbo.CreateVoiture", new
             {
                 entity.IdOffre,
@@ -40,6 +41,7 @@ namespace Infra.Dal.Implementations
                 entity.Description,
                 entity.Accidente
             });
+            return 0;
         }
 
         public async Task Delete(int id)

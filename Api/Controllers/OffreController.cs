@@ -18,9 +18,10 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public async Task Create (OffreRessource offre)
+        public async Task<int> Create (OffreRessource offre)
         {
-            await _offreData.Create(offre);
+            int id = await _offreData.Create(offre);
+            return id;
         }
 
         [HttpDelete]
