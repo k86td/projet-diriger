@@ -28,5 +28,14 @@ namespace Infra.Dal.Implementations
                 idOffre, idUsager
             });
         }
+
+        public async Task<ICollection<DemandeOffreRessource>> GetAllUserDemandeOffre(int idUser)
+        {
+            return await _db.QueryFromSql<DemandeOffreRessource, dynamic>("SELECT * FROM dbo.DemandesOffres WHERE IdUsager = @IdUsager",
+                new
+                {
+                    IdUsager = idUser
+                });
+        }
     }
 }

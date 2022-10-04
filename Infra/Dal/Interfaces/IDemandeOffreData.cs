@@ -7,5 +7,7 @@ namespace Infra.Dal.Interfaces
         public Task Create(DemandeOffreRessource demandeOffre);
 
         public Task Delete(int idOffre, int idUsager);
+
+        public Task<ICollection<DemandeOffreRessource>> GetAllUserDemandeOffre(int idUser);
     }
 }
