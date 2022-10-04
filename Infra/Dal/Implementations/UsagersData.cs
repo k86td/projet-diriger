@@ -79,5 +79,11 @@ namespace Infra.Dal.Implementations
             var usagers = await _db.QueryFromSP<UsagerRessource, dynamic>("dbo.GetUsager", new { Id = id });
             return usagers.FirstOrDefault();
         }
+
+        public async Task<UsagerRessource> Get(string email)
+        {
+            var usager = await _db.QueryFromSql<UsagerRessource, dynamic?>("SELECT * FROM dbo.Usagers", null);
+            return usager.Where(u => u.Email == email).First();
+        }
     }
 }

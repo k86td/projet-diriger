@@ -52,7 +52,8 @@ builder.Services
     .AddSingleton<IRolesData, RolesData>()
     .AddSingleton<IUsagersData, UsagersData>()
     .AddSingleton<IDemandesData, DemandesData>()
-    .AddSingleton<IVendeursData, VendeursData>();
+    .AddSingleton<IVendeursData, VendeursData>()
+    .AddSingleton<IDemandeOffreData, DemandeOffreData>();
 
 // Add services to the container.
 builder.Services.AddControllers();

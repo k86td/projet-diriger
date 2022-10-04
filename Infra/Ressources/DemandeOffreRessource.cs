@@ -8,7 +8,9 @@ namespace Infra.Ressources
 {
     public class DemandeOffreRessource
     {
-        public int IdOffre { get; private set; }
+        public int IdOffre { get; set; }
         public int IdUsager { get; set; }
+        public DateTime Date { get; set; }
+        public bool Accepter { get; set; }
     }
 }
