@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[AddOffre]
 	@IdVendeur int,
 	@Prix float,
-	@Date DateTime,
+	@Date DateTime2(7),
 	@Coordonner varchar(50),
 	@Nom VARCHAR(50), 
 	@IdCategorieOffre INT, 
