@@ -9,5 +9,8 @@ using Infra.Ressources;
 namespace Infra.Dal.Interfaces
 {
     public interface IOffreData : ICrudData<OffreRessource>
-    { }
+    {
+        public Task<ICollection<OffreRessource>> GetOffresBySellerId(int id); 
+
+    }
 }

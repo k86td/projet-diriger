@@ -117,6 +117,7 @@
     <Build Include="dbo\StoredProcedures\Voitures\EditVoiture.sql" />
     <Build Include="dbo\StoredProcedures\Voitures\DeleteVoiture.sql" />
     <Build Include="dbo\StoredProcedures\Voitures\GetVoiture.sql" />
+    <Build Include="dbo\StoredProcedures\OffresProcedures\GetOffresByUserId.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LocationDb.publish.xml" />

@@ -41,5 +41,17 @@ namespace Api.Controllers
 
             return offres;
         }
+
+        [HttpGet("Seller")]
+        public async Task<ICollection<OffreRessource>> Get(int idSeller)
+        {
+            ICollection<OffreRessource> offres = await _offreData.GetOffresBySellerId(idSeller);
+
+            if (offres == null)
+                return null;
+            
+            return offres;
+        }
+        
     }
 }

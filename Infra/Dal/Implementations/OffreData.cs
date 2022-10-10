@@ -68,5 +68,15 @@ namespace Infra.Dal.Implementations
                 });
             return offres.FirstOrDefault();
         }
+        
+        public async Task<ICollection<OffreRessource>> GetOffresBySellerId(int id)
+        {
+            var offres = await _db.QueryFromSP<OffreRessource, dynamic>("GetOffresBySellerId",
+                    new
+                    {
+                        Id = id
+                    });
+            return offres;
+        }
     }
 }
