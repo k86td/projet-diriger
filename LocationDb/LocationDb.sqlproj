@@ -67,6 +67,7 @@
     <Folder Include="dbo\StoredProcedures\Ratings" />
     <Folder Include="dbo\StoredProcedures\Demandes" />
     <Folder Include="dbo\StoredProcedures\Voitures" />
+    <Folder Include="dbo\StoredProcedures\DemandeOffre" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Views\RemoveMe.sql" />
@@ -117,6 +118,8 @@
     <Build Include="dbo\StoredProcedures\Voitures\EditVoiture.sql" />
     <Build Include="dbo\StoredProcedures\Voitures\DeleteVoiture.sql" />
     <Build Include="dbo\StoredProcedures\Voitures\GetVoiture.sql" />
+    <Build Include="dbo\StoredProcedures\DemandeOffre\AddDemandeOffre.sql" />
+    <Build Include="dbo\StoredProcedures\DemandeOffre\RemoveDemandeOffre.sql" />
     <Build Include="dbo\StoredProcedures\OffresProcedures\GetOffresByUserId.sql" />
   </ItemGroup>
   <ItemGroup>

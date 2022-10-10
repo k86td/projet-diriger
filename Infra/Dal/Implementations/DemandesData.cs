@@ -13,9 +13,11 @@ namespace Infra.Dal.Implementations
             _db = db;
         }
 
-        public async Task Create(DemandesRessource entity)
+        public async Task<int> Create(DemandesRessource entity)
         {
+            // TODO implement returning id on creation
             await _db.ExecuteFromSP("dbo.AddDemande", new { IdUser = entity.IdUsager });
+            return 0;
         }
 
         public async Task Delete(int id)

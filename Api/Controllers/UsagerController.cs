@@ -72,6 +72,7 @@ namespace Api.Controllers
 
             UsagerRessource usager = new UsagerRessource
             {
+                // modification pour garder le idRole .
                 IdRole = user.IdRole,
                 Password = user.Password,
                 Adresse = usagerEdit.Adresse,
