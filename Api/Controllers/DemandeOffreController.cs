@@ -30,16 +30,22 @@ namespace Api.Controllers
             return await _demandeOffreData.GetAllUserDemandeOffre(usager.Id);
         }
 
-        [HttpGet("{offreId}")]
-        [Authorize]
-        public async Task<DemandeOffreRessource?> Get(int offreId)
-        {
-            // TODO move this inside the database
-            string userEmail = User.Claims.Where(c => c.Type == ClaimTypes.Email).First().Value;
-            var usager = await _usagerData.Get(userEmail);
+        //[HttpGet("{offreId}")]
+        //[Authorize]
+        //public async Task<DemandeOffreRessource?> Get(int offreId)
+        //{
+        //    // TODO move this inside the database
+        //    string userEmail = User.Claims.Where(c => c.Type == ClaimTypes.Email).First().Value;
+        //    var usager = await _usagerData.Get(userEmail);
 
-            var demandesOffres = await _demandeOffreData.GetAllUserDemandeOffre(usager.Id);
-            return demandesOffres.Where(d => d.IdOffre == offreId).FirstOrDefault();
+        //    var demandesOffres = await _demandeOffreData.GetAllUserDemandeOffre(usager.Id);
+        //    return demandesOffres.Where(d => d.IdOffre == offreId).FirstOrDefault();
+        //}
+
+        [HttpGet("offre/{idOffre}")]
+        public async Task<ICollection<DemandeOffreRessource>> Get(int idOffre)
+        {
+            return await _demandeOffreData.GetAllDemandesByOffreId(idOffre);
         }
     }
 }
