@@ -49,6 +49,13 @@ namespace Api.Controllers
             return offres;
         }
 
+        [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<OffreRessource?> Get(int id)
+        {
+            return await _offreData.Get(id);
+        }
+
         [HttpPost("Rent/{id}")]
         [Authorize]
         public async Task Rent (int id)
