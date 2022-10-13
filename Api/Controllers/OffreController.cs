@@ -94,7 +94,7 @@ namespace Api.Controllers
 
         [HttpPost("Rent/{id}")]
         [Authorize]
-        public async Task Rent (int id)
+        public async Task CreateRent (int id)
         {
             string userEmail = User.Claims.Where(c => c.Type == ClaimTypes.Email).First().Value;
             var offre = await _offreData.Get(id);
@@ -111,6 +111,22 @@ namespace Api.Controllers
                 IdUsager = usager.Id,
             };
             await _demandeOffreData.Create(demande);
+        }
+
+        [HttpDelete("Rent/{id}")]
+        [Authorize]
+        public async Task DeleteRent(int id)
+        {
+            string userEmail = User.Claims.Where(c => c.Type == ClaimTypes.Email).First().Value;
+            var offre = await _offreData.Get(id);
+            var usager = await _usagerData.Get(userEmail);
+
+            if (offre == null)
+                throw new ArgumentNullException("You sent an invalid OffreId!");
+            else if (usager == null)
+                throw new ArgumentNullException("You are not logged in!");
+
+            await _demandeOffreData.Delete(offre.Id, usager.Id);
         }
     }
 }
