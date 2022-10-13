@@ -3,13 +3,18 @@
 	@IdVendeur int,
 	@Prix varchar(50),
 	@Date varchar(50),
-	@Coordonner varchar(50)
+	@Coordonner varchar(50),
+	@DateDebut DATETIME2,
+	@DateFin DATETIME2
+	
 AS
 BEGIN
 	UPDATE Offres
 	SET	   IdVendeur = @IdVendeur,
 		   Prix = @Prix,
-		   [Date] = @Date,
-		   Coordonner = @Coordonner
+		   Coordonner = @Coordonner,
+		   dateDebut = @DateDebut,
+		   dateFin = @DateFin
+		
 	WHERE Id = @Id;
 END

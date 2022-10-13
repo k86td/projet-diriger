@@ -5,6 +5,7 @@ using Infra.Dal.Interfaces;
 using Infra.Ressources;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Infra.Dal.Implementations;
 
 namespace Api.Controllers
 {
@@ -49,6 +50,37 @@ namespace Api.Controllers
             return offres;
         }
 
+
+        [HttpPut("{id}")]
+        public async void Edit(int id, [FromBody] OffreRessourceEdit offreEdit)
+        {
+            var offer = await _offreData.Get(id);
+
+            if (offer == null)
+                throw new ArgumentNullException("Offer cannot be null");
+
+            OffreRessource offre = new OffreRessource
+            {
+                Nom = offreEdit.Nom,
+                IdVendeur = offer.IdVendeur, //Pour garder l'id du vendeur
+                Prix = offreEdit.Prix,
+                Coordonner = offreEdit.Coordonner,
+                IdCategorieOffre = offreEdit.IdCategorieOffre,
+                IdTypeOffre = offreEdit.IdTypeOffre,
+                DateDebut = offreEdit.DateDebut,
+                DateFin = offreEdit.DateFin
+            };
+
+            await _offreData.Edit(id, offre);
+        }
+
+        [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<OffreRessource?> Get(int id)
+        {
+            return await _offreData.Get(id);
+        }
+
         [HttpGet("Seller/{idSeller}")]
         public async Task<ICollection<OffreRessource>> GetOffersBySellerId(int idSeller)
         {
@@ -58,14 +90,6 @@ namespace Api.Controllers
                 return new List<OffreRessource>();
 
             return offres;
-        }
-        
-
-        [HttpGet("{id}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<OffreRessource?> Get(int id)
-        {
-            return await _offreData.Get(id);
         }
 
         [HttpPost("Rent/{id}")]

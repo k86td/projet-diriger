@@ -25,11 +25,12 @@ namespace Infra.Dal.Implementations
             param.Add("Nom", entity.Nom);
             param.Add("IdVendeur", entity.IdVendeur, System.Data.DbType.Int64);
             param.Add("Prix", entity.Prix, System.Data.DbType.Currency);
-            param.Add("Date", entity.Date, System.Data.DbType.DateTime2);
             param.Add("Coordonner", entity.Coordonner);
             param.Add("IdCategorieOffre", entity.IdCategorieOffre, System.Data.DbType.Int64);
             param.Add("IdTypeOffre", entity.IdTypeOffre, System.Data.DbType.Int32);
             param.Add("OffreId", dbType: System.Data.DbType.Int32, direction: System.Data.ParameterDirection.Output);
+            param.Add("DateDebut", entity.DateDebut, System.Data.DbType.DateTime2);
+            param.Add("DateFin", entity.DateFin, System.Data.DbType.DateTime2);
 
             await _db.ExecuteFromSP("dbo.AddOffre", param);
 
@@ -47,14 +48,17 @@ namespace Infra.Dal.Implementations
 
         public async Task Edit(int id, OffreRessource modification)
         {
-            await _db.ExecuteFromSql("UPDATE dbo.Offres SET Nom = @Nom, Prix = @Prix, Date = @Date, Coordonner = @Coordonner, IdTypeOffre = @IdTypeOffre, IdCategorieOffre = @IdCategorieOffre WHERE Id = @Id",
+            await _db.ExecuteFromSql("UPDATE dbo.Offres SET Nom = @Nom, Prix = @Prix, Coordonner = @Coordonner, IdTypeOffre = @IdTypeOffre, IdCategorieOffre = @IdCategorieOffre, dateDebut = @DateDebut, dateFin = @DateFin WHERE Id = @Id",
                 new
                 {
-                    Id = id,
                     modification.Nom,
                     modification.Prix,
-                    modification.Date,
-                    modification.Coordonner
+                    modification.Coordonner,
+                    modification.IdTypeOffre,
+                    modification.IdCategorieOffre,
+                    modification.DateDebut,
+                    modification.DateFin,
+                    Id = id
                 });
         }
 
