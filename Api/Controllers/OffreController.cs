@@ -94,7 +94,7 @@ namespace Api.Controllers
 
         [HttpPost("Rent/{id}")]
         [Authorize]
-        public async Task CreateRent (int id)
+        public async Task CreateRent(int id, [FromBody] DateTimeRessource dateRessource)
         {
             string userEmail = User.Claims.Where(c => c.Type == ClaimTypes.Email).First().Value;
             var offre = await _offreData.Get(id);
@@ -109,6 +109,7 @@ namespace Api.Controllers
             {
                 IdOffre = offre.Id,
                 IdUsager = usager.Id,
+                Date = dateRessource.Date
             };
             await _demandeOffreData.Create(demande);
         }
@@ -127,6 +128,36 @@ namespace Api.Controllers
                 throw new ArgumentNullException("You are not logged in!");
 
             await _demandeOffreData.Delete(offre.Id, usager.Id);
+        }
+
+        [HttpPut("Rent/{id}")]
+        [Authorize]
+        public async Task<ActionResult> EditRent(int id, [FromBody] DateTime newDate)
+        {
+            try
+            {
+                string userEmail = User.Claims.Where(c => c.Type == ClaimTypes.Email).First().Value;
+                var offre = await _offreData.Get(id);
+                var usager = await _usagerData.Get(userEmail);
+
+                if (offre == null)
+                    throw new ArgumentNullException("You sent an invalid OffreId!");
+                else if (usager == null)
+                    throw new ArgumentNullException("You are not logged in!");
+
+                var demandesOffres = await _demandeOffreData.GetAllDemandesByOffreId(offre.Id);
+                DemandeOffreRessource demande = demandesOffres.Where(demande => demande.IdUsager == usager.Id).First();
+
+                demande.Date = newDate;
+
+                await _demandeOffreData.Edit(offre.Id, usager.Id, demande);
+            }
+            catch
+            {
+                return new BadRequestResult();
+            }
+
+            return Ok();
         }
     }
 }
