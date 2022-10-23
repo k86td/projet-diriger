@@ -30,6 +30,7 @@ namespace Infra.Dal.Implementations
             await _db.ExecuteFromSP("dbo.CreateVoiture", new
             {
                 entity.IdOffre,
+                entity.Annee,
                 entity.Couleur,
                 entity.Marque,
                 entity.Modele,
@@ -37,6 +38,7 @@ namespace Infra.Dal.Implementations
                 entity.TypeVehicule,
                 entity.NombrePorte,
                 entity.NombreSiege,
+                entity.Carburant,
                 entity.Traction,
                 entity.Description,
                 entity.Accidente
@@ -57,12 +59,14 @@ namespace Infra.Dal.Implementations
             await _db.ExecuteFromSP("dbo.EditVoiture", new
             {
                 IdOffre = id,
+                modification.Annee,
                 modification.Couleur,
                 modification.Marque,
                 modification.Odometre,
                 modification.TypeVehicule,
                 modification.NombrePorte,
                 modification.NombreSiege,
+                modification.Carburant,
                 modification.Traction,
                 modification.Description,
                 modification.Accidente

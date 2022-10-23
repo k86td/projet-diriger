@@ -1,5 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[CreateVoiture]
 	@IdOffre INT,
+	@Annee INT,
 	@Couleur VARCHAR(30),
 	@Marque VARCHAR(30),
 	@Modele VARCHAR(30),
@@ -7,16 +8,17 @@
 	@TypeVehicule VARCHAR(30),
 	@NombrePorte INT,
 	@NombreSiege INT,
+	@Carburant VARCHAR(30),
 	@Traction VARCHAR(50),
 	@Description VARCHAR(100),
 	@Accidente BIT
 AS
 BEGIN
 	INSERT INTO dbo.Voitures (
-		IdOffre, Couleur, Marque, Modele, Odometre, TypeVehicule,
+		IdOffre, Annee, Couleur, Marque, Modele, Odometre, TypeVehicule,
 		NombrePorte, NombreSiege, Traction, [Description],
 		Accidente)
-		VALUES (@IdOffre, @Couleur, @Marque, @Modele, @Odometre, 
-		@TypeVehicule, @NombrePorte, @NombreSiege, 
+		VALUES (@IdOffre,@Annee, @Couleur, @Marque, @Modele, @Odometre, 
+		@TypeVehicule, @NombrePorte, @NombreSiege, @Carburant, 
 		@Traction, @Description, @Accidente);
 END;

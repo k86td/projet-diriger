@@ -10,6 +10,7 @@ namespace Infra.Ressources
     public class VoitureRessource
     {
         public int IdOffre { get; set; }
+        public int Annee { get; set; }
         public string Couleur { get; set; }
         public string Marque { get; set; }
         public string Modele { get; set; }
@@ -17,6 +18,7 @@ namespace Infra.Ressources
         public string TypeVehicule { get; set; }
         public int NombrePorte { get; set; }
         public int NombreSiege { get; set; }
+        public string Carburant { get; set; }
         public string Traction { get; set; }
         public string Description { get; set; }
         public bool Accidente { get; set; }

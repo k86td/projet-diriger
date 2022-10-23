@@ -1,5 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[EditVoiture]
 	@IdOffre INT,
+	@Annee INT,
 	@Couleur VARCHAR(30),
 	@Marque VARCHAR(30),
 	@Odometre INT,
@@ -13,6 +14,7 @@ AS
 BEGIN
 	UPDATE dbo.Voitures
 	SET 
+		Annee = @Annee,
 		Couleur = @Couleur,
 		Marque = @Marque,
 		Odometre = @Odometre,
