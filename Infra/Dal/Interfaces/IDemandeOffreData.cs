@@ -13,5 +13,7 @@ namespace Infra.Dal.Interfaces
         public Task<ICollection<DemandeOffreRessource>> GetAllDemandesByOffreId(int idOffre);
 
         public Task Edit(int id, int idUsager, DemandeOffreRessource demandeOffre);
+        
+        public Task Accepter(int idOffre, int idUsager);
     }
 }

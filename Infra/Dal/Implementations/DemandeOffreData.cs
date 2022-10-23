@@ -37,7 +37,8 @@ namespace Infra.Dal.Implementations
         {
             await _db.ExecuteFromSP("dbo.RemoveDemandeOffre", new
             {
-                idOffre, idUsager
+                idOffre,
+                idUsager
             });
         }
 
@@ -59,6 +60,16 @@ namespace Infra.Dal.Implementations
                         IdOffre = idOffre
                     });
             }
+        }
+
+        public async Task Accepter(int idOffre, int idUsager)
+        {
+            await _db.ExecuteFromSql("UPDATE dbo.DemandesOffres SET Accepter = 1 WHERE IdOffre = @IdOffre AND IdUsager = @IdUsager", new
+            {
+                IdOffre = idOffre,
+                IdUsager = idUsager
+            });
+
         }
     }
 }

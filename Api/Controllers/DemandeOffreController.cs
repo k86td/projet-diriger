@@ -54,5 +54,11 @@ namespace Api.Controllers
         {
             await _demandeOffreData.Edit(id, idUsager, demandeOffre);
         }
+
+        [HttpPut("Accept")]
+        public async void Put(int idOffre, int idUsager)
+        {
+            await _demandeOffreData.Accepter(idOffre, idUsager);
+        }
     }
 }
