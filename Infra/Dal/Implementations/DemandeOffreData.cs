@@ -17,7 +17,18 @@ namespace Infra.Dal.Implementations
             await _db.ExecuteFromSP("dbo.AddDemandeOffre", new
             {
                 entity.IdOffre,
-                entity.IdUsager
+                entity.IdUsager,
+                entity.Date
+            });
+        }
+
+        public async Task Edit(int id, int idUsager, DemandeOffreRessource entity)
+        {
+            await _db.ExecuteFromSql("UPDATE dbo.DemandesOffres SET [Date] = @Date WHERE IdOffre = @Id AND IdUsager = @IdUsager", new
+            {
+                Id = id,
+                IdUsager = idUsager,
+                Date = entity.Date
             });
         }
 

@@ -1,8 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[AddDemandeOffre]
 	@IdOffre INT,
-	@IdUsager INT
+	@IdUsager INT,
+	@Date DATETIME2(7)
 AS
 BEGIN
-	INSERT INTO dbo.DemandesOffres (IdOffre, IdUsager)
-	VALUES (@IdOffre, @IdUsager);
+	INSERT INTO dbo.DemandesOffres (IdOffre, IdUsager, [Date])
+	VALUES (@IdOffre, @IdUsager, @Date);
 END;
