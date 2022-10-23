@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Infra.Dal.Interfaces;
 using Infra.Ressources;
 using System.Security.Claims;
+using Infra.Dal.Implementations;
 
 namespace Api.Controllers
 {
@@ -46,6 +47,12 @@ namespace Api.Controllers
         public async Task<ICollection<DemandeOffreRessource>> Get(int idOffre)
         {
             return await _demandeOffreData.GetAllDemandesByOffreId(idOffre);
+        }
+        
+        [HttpPut("{id}")]
+        public async void Put(int id, int idUsager, DemandeOffreRessource demandeOffre)
+        {
+            await _demandeOffreData.Edit(id, idUsager, demandeOffre);
         }
     }
 }
