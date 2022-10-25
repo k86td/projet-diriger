@@ -13,7 +13,7 @@ namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class UsagerController : ControllerBase
     {
         private readonly IUsagersData _usagersData;

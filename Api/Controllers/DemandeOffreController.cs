@@ -60,5 +60,10 @@ namespace Api.Controllers
         {
             await _demandeOffreData.Accepter(idOffre, idUsager);
         }
+        [HttpDelete]
+        public async Task Delete(int idOffre, int idUsager)
+        {
+            await _demandeOffreData.Delete(idOffre,idUsager);
+        }
     }
 }
