@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+using Api.Source;
 using Infra.Dal.Interfaces;
 using Infra.Ressources;
 using Microsoft.AspNetCore.Authorization;
@@ -38,10 +38,15 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ICollection<OffreRessource>> Get ([FromQuery] int[] typeId, [FromQuery] int?[] categorieId)
+        public async Task<ICollection<OffreRessource>> Get ([FromQuery] int[] typeId, [FromQuery] int?[] categorieId, [FromQuery] double? latCent, [FromQuery] double? lonCent, [FromQuery] int? range)
         {
             ICollection<OffreRessource> offres = await _offreData.Get();
-
+            if (latCent != null && lonCent != null && range != null)
+            {
+                offres = offres.Where(o =>
+                    Helper.DistanceAlgorithm.Distance((double)latCent, (double)lonCent, Convert.ToDouble(o.Coordonner.Split(',')[0]), Convert.ToDouble(o.Coordonner.Split(',')[1])) <= range)
+                .ToList();
+            }
             if (typeId.Length > 0)
                 offres = offres.Where(o => typeId.Contains(o.IdTypeOffre)).ToList();
             if (categorieId?.Length > 0)

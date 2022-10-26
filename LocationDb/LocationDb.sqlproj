@@ -125,6 +125,6 @@
     <Build Include="dbo\StoredProcedures\OffresProcedures\GetOffresByUserId.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="LocationDb.publish.xml" />
+    <None Include="LocationDb10-26.publish.publish.xml" />
   </ItemGroup>
 </Project>

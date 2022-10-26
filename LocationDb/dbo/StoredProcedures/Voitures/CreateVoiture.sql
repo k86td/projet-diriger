@@ -16,7 +16,7 @@ AS
 BEGIN
 	INSERT INTO dbo.Voitures (
 		IdOffre, Annee, Couleur, Marque, Modele, Odometre, TypeVehicule,
-		NombrePorte, NombreSiege, Traction, [Description],
+		NombrePorte, NombreSiege, Carburant, Traction, [Description],
 		Accidente)
 		VALUES (@IdOffre,@Annee, @Couleur, @Marque, @Modele, @Odometre, 
 		@TypeVehicule, @NombrePorte, @NombreSiege, @Carburant, 
