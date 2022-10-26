@@ -101,6 +101,24 @@ namespace Api.Controllers
             return NotFound("User couldn't be found");
         }
 
+        [HttpGet("info/{id}")]
+        public async Task<UsagerPublicInfoRessource?> GetPublicInfo (int id)
+        {
+            var usagers = await _usagersData.Get();
+            var usager = usagers.Where(u => u.Id == id).FirstOrDefault();
+
+            if (usager != null)
+                return new UsagerPublicInfoRessource
+                {
+                    Nom = usager.Nom,
+                    Prenom = usager.Prenom,
+                    Email = usager.Email,
+                    Telephone = usager.Telephone
+                };
+
+            return null;
+        }
+
         private async Task<string?> Generate(UsagerRessource user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
@@ -123,7 +141,7 @@ namespace Api.Controllers
                 _config["Jwt:Issuer"],
                 _config["Jwt:Audience"],
                 claims,
-                expires: DateTime.Now.AddMinutes(30),
+                expires: DateTime.Now.AddHours(3),
                 signingCredentials: credentials
             );
 
