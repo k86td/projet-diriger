@@ -6,6 +6,7 @@ using Infra.Ressources;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using Infra.Dal.Implementations;
+using System.Globalization;
 
 namespace Api.Controllers
 {
@@ -44,7 +45,12 @@ namespace Api.Controllers
             if (latCent != null && lonCent != null && range != null)
             {
                 offres = offres.Where(o =>
-                    Helper.DistanceAlgorithm.Distance((double)latCent, (double)lonCent, Convert.ToDouble(o.Coordonner.Split(',')[0]), Convert.ToDouble(o.Coordonner.Split(',')[1])) <= range)
+                    Helper.DistanceAlgorithm.Distance(
+                        (double)latCent,
+                        (double)lonCent,
+                        double.Parse(o.Coordonner.Split(',')[0], CultureInfo.InvariantCulture),
+                        double.Parse(o.Coordonner.Split(',')[1], CultureInfo.InvariantCulture))
+                 <= range)
                 .ToList();
             }
             if (typeId.Length > 0)
