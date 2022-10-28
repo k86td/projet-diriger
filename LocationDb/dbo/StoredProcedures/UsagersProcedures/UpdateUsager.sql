@@ -6,7 +6,8 @@
 	@Email varchar(50),
 	@Telephone varchar(15),
 	@Password varchar(100),
-	@Adresse varchar(100)
+	@Adresse varchar(100),
+	@Age int
 AS
 BEGIN
 	UPDATE Usagers
@@ -16,6 +17,7 @@ BEGIN
 		   Email = @Email,
 		   Telephone = @Telephone,
 		   [Password] = @Password,
-		   Adresse = @Adresse
+		   Adresse = @Adresse,
+		   Age = @Age
 	WHERE Id = @Id;
 END

@@ -44,7 +44,8 @@ namespace Infra.Dal.Implementations
                 entity.Email,
                 entity.Telephone,
                 entity.Password,
-                entity.Adresse
+                entity.Adresse,
+                entity.Age
             });
             return 0;
         }

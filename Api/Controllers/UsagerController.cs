@@ -79,7 +79,8 @@ namespace Api.Controllers
                 Email = usagerEdit.Email,
                 Prenom = usagerEdit.Prenom,
                 Nom = usagerEdit.Nom,
-                Telephone = usagerEdit.Telephone
+                Telephone = usagerEdit.Telephone,
+                Age = usagerEdit.Age
             };
             
             usager.Password = user.Password;
@@ -113,7 +114,8 @@ namespace Api.Controllers
                     Nom = usager.Nom,
                     Prenom = usager.Prenom,
                     Email = usager.Email,
-                    Telephone = usager.Telephone
+                    Telephone = usager.Telephone,
+                    Age = usager.Age
                 };
 
             return null;

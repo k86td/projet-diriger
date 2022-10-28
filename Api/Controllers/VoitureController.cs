@@ -39,13 +39,13 @@ namespace Api.Controllers
 
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<VoitureRessource?> Get (int id)
+        public async Task<VoitureRessource?> Get(int id)
         {
             return await _voitureData.Get(id);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post (VoitureRessource voiture)
+        public async Task<IActionResult> Post(VoitureRessource voiture)
         {
             try
             {
@@ -54,20 +54,20 @@ namespace Api.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogCritical("Fatal exception in POST:VoitureController: " + 
+                _logger.LogCritical("Fatal exception in POST:VoitureController: " +
                     ex.Message);
                 return BadRequest();
             }
         }
 
         [HttpDelete]
-        public async void Delete (int id)
+        public async void Delete(int id)
         {
             await _voitureData.Delete(id);
         }
 
         [HttpPut("{id}")]
-        public async void Put (int id, VoitureRessource voiture)
+        public async void Put(int id, [FromBody] VoitureRessource voiture)
         {
             await _voitureData.Edit(id, voiture);
         }

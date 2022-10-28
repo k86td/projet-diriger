@@ -7,6 +7,7 @@
 	@TypeVehicule VARCHAR(30),
 	@NombrePorte INT,
 	@NombreSiege INT,
+	@Carburant VARCHAR(30),
 	@Traction VARCHAR(50),
 	@Description VARCHAR(100),
 	@Accidente BIT
@@ -21,6 +22,7 @@ BEGIN
 		TypeVehicule = @TypeVehicule,
 		NombrePorte = @NombrePorte,
 		NombreSiege = @NombreSiege,
+		Carburant = @Carburant,
 		Traction = @Traction,
 		[Description] = @Description,
 		Accidente = @Accidente

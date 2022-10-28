@@ -9,5 +9,6 @@
 	[Password] Varchar(100) NOT NULL,
 	Adresse Varchar(100) NOT NULL,
 
-	PRIMARY KEY (Id)
+	[Age] INT NULL, 
+    PRIMARY KEY (Id)
 )
