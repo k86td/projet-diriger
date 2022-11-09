@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="LocationDb10-26.publish.publish.xml" />
-    <None Include="Migrations\migration1.sql" />
+    <None Include="Migrations\migration.sql" />
+    <None Include="LocationDb.publish.xml" />
   </ItemGroup>
 </Project>

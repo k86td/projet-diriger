@@ -12,5 +12,6 @@ namespace Infra.Ressources
         public int IdUsager { get; set; }
         public DateTime Date { get; set; }
         public bool Accepter { get; set; }
+        public bool Payer { get; set; } = false;
     }
 }
