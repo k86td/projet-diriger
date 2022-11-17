@@ -44,6 +44,7 @@ builder.Services.AddCors(options =>
 // configure our services
 builder.Services
     .AddSingleton(configuration)
+    .AddSingleton<IConversationsData,ConversationsData>()
     .AddSingleton<IVoitureData, VoitureData>()
     .AddSingleton<IOffreData, OffreData>()
     .AddSingleton<ITypeOffreData, TypeOffreData>()
