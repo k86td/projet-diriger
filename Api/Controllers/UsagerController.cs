@@ -35,7 +35,7 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public async Task<IEnumerable<UsagerRessource>> Get()
         {
             return await _usagersData.Get();
