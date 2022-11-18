@@ -5,7 +5,7 @@
 	[Date] Datetime2(7) DEFAULT GETDATE(),
 	Accepter Bit DEFAULT 0,
 
-	[Payer] BIT NULL DEFAULT 0, 
+	[OrderId] VARCHAR(50) NOT NULL, 
     PRIMARY KEY (IdOffre, IdUsager),
 	
 	CONSTRAINT FK_Offres_Demande FOREIGN KEY (IdOffre) REFERENCES Offres(Id) ON DELETE CASCADE,

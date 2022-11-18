@@ -130,4 +130,7 @@
     <None Include="Migrations\migration.sql" />
     <None Include="LocationDb.publish.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="LocationDb.refactorlog" />
+  </ItemGroup>
 </Project>
