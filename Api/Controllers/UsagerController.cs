@@ -50,9 +50,22 @@ namespace Api.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async void Post (UsagerRessource usager)
+        public async void Post (UsagerCreateRessource usager)
         {
-            await _usagersData.Create(usager);
+            var roles = await _roleData.Get();
+            var newUserRole = roles.Where(r => r.Nom == "NonValidatedUser").First();
+
+            await _usagersData.Create(new UsagerRessource
+            {
+                Adresse = usager.Adresse,
+                Email = usager.Email,
+                Nom = usager.Nom,
+                Prenom = usager.Prenom,
+                Password = usager.Password,
+                Telephone = usager.Telephone,
+                Age = 0,
+                IdRole = newUserRole.Id,
+            });
         }
 
         [HttpDelete] 
