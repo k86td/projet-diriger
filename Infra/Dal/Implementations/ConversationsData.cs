@@ -42,9 +42,11 @@ namespace Infra.Dal.Implementations
             });
         }
 
-        public Task<ICollection<ConversationsRessource>> Get()
+
+        public async Task<ICollection<ConversationsRessource>> Get()
         {
-            throw new NotImplementedException();
+            return await _db.QueryFromSP<ConversationsRessource, dynamic>("dbo.GetAllConversations",
+                new { });
         }
 
         public Task<ConversationsRessource?> Get(int id)
