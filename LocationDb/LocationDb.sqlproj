@@ -107,7 +107,7 @@
     <Build Include="dbo\StoredProcedures\Ratings\AddRating.sql" />
     <Build Include="dbo\StoredProcedures\Ratings\UpdateRating.sql" />
     <Build Include="dbo\StoredProcedures\Ratings\DeleteRating.sql" />
-    <Build Include="dbo\StoredProcedures\Ratings\GetAllOfferRatings.sql" />
+    <Build Include="dbo\StoredProcedures\Ratings\GetAllSellerRatings.sql" />
     <Build Include="dbo\StoredProcedures\Ratings\GetAllRatings.sql" />
     <Build Include="dbo\StoredProcedures\ConverstationsProcedures\UpdateConversation.sql" />
     <Build Include="dbo\StoredProcedures\ConverstationsProcedures\GetAllConversations.sql" />

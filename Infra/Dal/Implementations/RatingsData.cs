@@ -22,7 +22,7 @@ namespace Infra.Dal.Implementations
             // TODO implement returning id on creation
             await _db.ExecuteFromSP("dbo.AddRating", new
             {
-                entity.IdOffre,
+                entity.IdVendeur,
                 entity.IdUsager,
                 entity.Rating
             });
@@ -34,14 +34,14 @@ namespace Infra.Dal.Implementations
             await _db.ExecuteFromSP("dbo.UpdateRating", new
             {
                 modification.IdUsager,
-                modification.IdOffre,
+                modification.IdVendeur,
                 modification.Rating
             });
         }
 
-        public async Task Delete(int idUsager, int idOffre)
+        public async Task Delete(int idUsager, int idVendeur)
         {
-            await _db.ExecuteFromSP("dbo.DeleteRating", new { IdUsager = idUsager, IdOffre = idOffre });
+            await _db.ExecuteFromSP("dbo.DeleteRating", new { IdUsager = idUsager, IdVendeur = idVendeur });
         }
 
         public async Task<ICollection<RatingRessource>> Get()
@@ -49,10 +49,10 @@ namespace Infra.Dal.Implementations
             return await _db.QueryFromSP<RatingRessource, dynamic>("dbo.GetAllRatings", new { });
         }
 
-        public async Task<RatingRessource?> Get(int idUsager, int idOffre)
+        public async Task<RatingRessource?> Get(int idUsager, int idVendeur)
         {
             var ratings = await Get();
-            var selectedRating = ratings.Where(r => r.IdUsager == idUsager && r.IdOffre == idOffre).FirstOrDefault();
+            var selectedRating = ratings.Where(r => r.IdUsager == idUsager && r.IdVendeur == idVendeur).FirstOrDefault();
 
             if (selectedRating == null)
             {
@@ -64,7 +64,7 @@ namespace Infra.Dal.Implementations
 
         public async Task<ICollection<RatingRessource>> GetAllOfferRatings(int id)
         {
-            return await _db.QueryFromSP<RatingRessource, dynamic>("dbo.GetAllOfferRatings", new { id });
+            return await _db.QueryFromSP<RatingRessource, dynamic>("dbo.GetAllSellerRatings", new { id });
         }
 
         Task<List<RatingRessource>> IRatingsData.GetAllOfferRatings(int id)

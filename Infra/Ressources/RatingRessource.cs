@@ -8,7 +8,7 @@ namespace Infra.Ressources
 {
     public class RatingRessource
     {
-        public int IdOffre { get; private set; }
+        public int IdVendeur { get; private set; }
         public int IdUsager { get; private set; }
         public int Rating { get; set; }
     }
