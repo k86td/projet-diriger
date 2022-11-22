@@ -5,7 +5,8 @@
 	@Date varchar(50),
 	@Coordonner varchar(50),
 	@DateDebut DATETIME2,
-	@DateFin DATETIME2
+	@DateFin DATETIME2,
+	@image VARCHAR(50)
 	
 AS
 BEGIN
@@ -14,7 +15,8 @@ BEGIN
 		   Prix = @Prix,
 		   Coordonner = @Coordonner,
 		   dateDebut = @DateDebut,
-		   dateFin = @DateFin
+		   dateFin = @DateFin,
+		   [image] = @image
 		
 	WHERE Id = @Id;
 END

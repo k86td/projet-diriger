@@ -9,6 +9,7 @@
 	IdTypeOffre INT,
 	[dateDebut] DATETIME2 NOT NULL, 
     [dateFin] DATETIME2 NOT NULL, 
+    [image] NCHAR(10) NULL, 
     PRIMARY KEY(Id),
 	CONSTRAINT fk_offres_typeOffre FOREIGN KEY (IdTypeOffre) REFERENCES TypesOffres(Id),
 	CONSTRAINT fk_offres_categorieOffre FOREIGN KEY (IdCategorieOffre) REFERENCES CategoriesOffres(Id),

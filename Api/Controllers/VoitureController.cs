@@ -66,10 +66,10 @@ namespace Api.Controllers
             await _voitureData.Delete(id);
         }
 
-        [HttpPut("{id}")]
-        public async void Put(int id, [FromBody] VoitureRessource voiture)
+        [HttpPut]
+        public async void Put(VoitureRessource voiture)
         {
-            await _voitureData.Edit(id, voiture);
+            await _voitureData.Edit(voiture.IdOffre, voiture);
         }
     }
 }

@@ -79,7 +79,8 @@ namespace Api.Controllers
                 IdCategorieOffre = offreEdit.IdCategorieOffre,
                 IdTypeOffre = offreEdit.IdTypeOffre,
                 DateDebut = offreEdit.DateDebut,
-                DateFin = offreEdit.DateFin
+                DateFin = offreEdit.DateFin,
+                Image = offreEdit.Image
             };
 
             await _offreData.Edit(id, offre);

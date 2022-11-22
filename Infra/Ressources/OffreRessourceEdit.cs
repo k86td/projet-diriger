@@ -15,5 +15,6 @@ namespace Infra.Ressources
         public string Coordonner { get; set; }
         public int? IdCategorieOffre { get; set; }
         public int IdTypeOffre { get; set; }
+        public string Image { get; set; }
     }
 }

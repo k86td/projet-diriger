@@ -31,6 +31,7 @@ namespace Infra.Dal.Implementations
             param.Add("OffreId", dbType: System.Data.DbType.Int32, direction: System.Data.ParameterDirection.Output);
             param.Add("DateDebut", entity.DateDebut, System.Data.DbType.DateTime2);
             param.Add("DateFin", entity.DateFin, System.Data.DbType.DateTime2);
+            param.Add("Image", entity.Image, System.Data.DbType.String);
 
             await _db.ExecuteFromSP("dbo.AddOffre", param);
 
@@ -48,7 +49,7 @@ namespace Infra.Dal.Implementations
 
         public async Task Edit(int id, OffreRessource modification)
         {
-            await _db.ExecuteFromSql("UPDATE dbo.Offres SET Nom = @Nom, Prix = @Prix, Coordonner = @Coordonner, IdTypeOffre = @IdTypeOffre, IdCategorieOffre = @IdCategorieOffre, dateDebut = @DateDebut, dateFin = @DateFin WHERE Id = @Id",
+            await _db.ExecuteFromSql("UPDATE dbo.Offres SET Nom = @Nom, Prix = @Prix, Coordonner = @Coordonner, IdTypeOffre = @IdTypeOffre, IdCategorieOffre = @IdCategorieOffre, dateDebut = @DateDebut, dateFin = @DateFin, image = @Image WHERE Id = @Id",
                 new
                 {
                     modification.Nom,
@@ -58,6 +59,7 @@ namespace Infra.Dal.Implementations
                     modification.IdCategorieOffre,
                     modification.DateDebut,
                     modification.DateFin,
+                    modification.Image,
                     Id = id
                 });
         }
