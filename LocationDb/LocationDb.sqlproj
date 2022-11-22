@@ -69,7 +69,6 @@
     <Folder Include="dbo\StoredProcedures\Voitures" />
     <Folder Include="dbo\StoredProcedures\DemandeOffre" />
     <Folder Include="dbo\StoredProcedures\CategorieOffre" />
-    <Folder Include="Migrations" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Views\RemoveMe.sql" />
@@ -127,7 +126,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="LocationDb10-26.publish.publish.xml" />
-    <None Include="Migrations\migration.sql" />
     <None Include="LocationDb.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="LocationDb.refactorlog" />
   </ItemGroup>
 </Project>

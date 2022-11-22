@@ -18,7 +18,8 @@ namespace Infra.Dal.Implementations
             {
                 entity.IdOffre,
                 entity.IdUsager,
-                entity.Date
+                entity.Date,
+                entity.OrderId
             });
         }
 

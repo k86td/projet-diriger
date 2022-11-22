@@ -106,7 +106,7 @@ namespace Api.Controllers
 
         [HttpPost("Rent/{id}")]
         [Authorize]
-        public async Task CreateRent(int id, [FromBody] DateTimeRessource dateRessource)
+        public async Task CreateRent(int id, RentOffreRessource rentOffer)
         {
             string userEmail = User.Claims.Where(c => c.Type == ClaimTypes.Email).First().Value;
             var offre = await _offreData.Get(id);
@@ -121,7 +121,8 @@ namespace Api.Controllers
             {
                 IdOffre = offre.Id,
                 IdUsager = usager.Id,
-                Date = dateRessource.Date
+                Date = rentOffer.Date,
+                OrderId = rentOffer.OrderId
             };
             await _demandeOffreData.Create(demande);
         }
