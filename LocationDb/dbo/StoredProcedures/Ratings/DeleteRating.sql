@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[DeleteRating]
 	@IdUsager int,
-	@IdOffre int
+	@IdVendeur int
 AS
 BEGIN
-	DELETE FROM dbo.Ratings WHERE IdOffre = @IdOffre AND IdUsager = @IdUsager;
+	DELETE FROM dbo.Ratings WHERE IdVendeur = @IdVendeur AND IdUsager = @IdUsager;
 END

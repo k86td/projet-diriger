@@ -1,10 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[UpdateRating]
 	@idUsager int,
-	@idOffre int,
+	@idVendeur int,
 	@rating int
 AS
 BEGIN
 	UPDATE dbo.Ratings
 	SET Rating = @rating
-	WHERE IdOffre = @idOffre AND IdUsager = @idUsager;
+	WHERE IdVendeur = @idVendeur AND IdUsager = @idUsager;
 END

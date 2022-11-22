@@ -4,5 +4,5 @@
 	@rating  int
 AS
 BEGIN
-	INSERT INTO dbo.Ratings (IdOffre, IdUsager, Rating) VALUES (@idOffre,@idUsager,@rating); 
+	INSERT INTO dbo.Ratings (IdVendeur, IdUsager, Rating) VALUES (@idOffre,@idUsager,@rating); 
 END
