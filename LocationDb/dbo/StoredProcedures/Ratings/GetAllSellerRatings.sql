@@ -2,6 +2,6 @@
 	@IdVendeur int
 AS
 BEGIN
-	SELECT Rating,Nom,Prenom FROM dbo.Ratings INNER JOIN dbo.Usagers ON Ratings.IdUsager = Usagers.Id 
+	SELECT IdVendeur, IdUsager, Rating FROM dbo.Ratings 
 	WHERE IdVendeur = @IdVendeur;
 END

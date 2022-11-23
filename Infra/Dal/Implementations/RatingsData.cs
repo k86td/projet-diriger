@@ -62,15 +62,11 @@ namespace Infra.Dal.Implementations
             return selectedRating;
         }
 
-        public async Task<ICollection<RatingRessource>> GetAllOfferRatings(int id)
+        public async Task<ICollection<RatingRessource>> GetAllSellerRatings(int id)
         {
-            return await _db.QueryFromSP<RatingRessource, dynamic>("dbo.GetAllSellerRatings", new { id });
+            return await _db.QueryFromSP<RatingRessource, dynamic>("dbo.GetAllSellerRatings", new { IdVendeur = id });
         }
 
-        Task<List<RatingRessource>> IRatingsData.GetAllSellerRatings(int id)
-        {
-            throw new NotImplementedException();
-        }
 
         public Task<RatingRessource?> Get(int id)
         {

@@ -50,6 +50,7 @@ builder.Services
     .AddSingleton<ITypeOffreData, TypeOffreData>()
     .AddSingleton<ICategorieOffreData, CategorieOffreData>()
     .AddSingleton<IDatabase, MssqlDb>()
+    .AddSingleton<IRatingsData, RatingsData>()
     .AddSingleton<IRolesData, RolesData>()
     .AddSingleton<IUsagersData, UsagersData>()
     .AddSingleton<IDemandesData, DemandesData>()
