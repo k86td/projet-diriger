@@ -5,9 +5,11 @@ using Infra.Dal.Interfaces;
 using Infra.Ressources;
 using System.Security.Claims;
 using Infra.Dal.Implementations;
+using System.ComponentModel.DataAnnotations;
 
 namespace Api.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class DemandeOffreController : ControllerBase
@@ -31,6 +33,14 @@ namespace Api.Controllers
             return await _demandeOffreData.GetAllUserDemandeOffre(usager.Id);
         }
 
+        // this should be secured
+        [HttpGet("userDemande")]
+        public async Task<DemandeOffreRessource?> Get(int IdOffre, int IdUsager)
+        {
+            var allDemandeOffre = await _demandeOffreData.GetAllDemandesByOffreId(IdOffre);
+            return allDemandeOffre.Where(d => d.IdUsager == IdUsager).FirstOrDefault();
+        }
+
         //[HttpGet("{offreId}")]
         //[Authorize]
         //public async Task<DemandeOffreRessource?> Get(int offreId)
@@ -46,7 +56,8 @@ namespace Api.Controllers
         [HttpGet("offre/{idOffre}")]
         public async Task<ICollection<DemandeOffreRessource>> Get(int idOffre)
         {
-            return await _demandeOffreData.GetAllDemandesByOffreId(idOffre);
+            var demandeOffres = await _demandeOffreData.GetAllDemandesByOffreId(idOffre);
+            return demandeOffres;
         }
         
         [HttpPut("{id}")]
