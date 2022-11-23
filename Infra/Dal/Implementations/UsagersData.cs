@@ -45,7 +45,8 @@ namespace Infra.Dal.Implementations
                 entity.Telephone,
                 entity.Password,
                 entity.Adresse,
-                entity.Age
+                entity.Age,
+                entity.ImageProfil
             });
             return 0;
         }
@@ -66,7 +67,8 @@ namespace Infra.Dal.Implementations
                 modification.Email,
                 modification.Telephone,
                 modification.Password,
-                modification.Adresse
+                modification.Adresse,
+                modification.ImageProfil
             });
         }
 

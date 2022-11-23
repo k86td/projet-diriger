@@ -7,7 +7,8 @@
 	@Telephone varchar(15),
 	@Password varchar(100),
 	@Adresse varchar(100),
-	@Age int
+	@Age int,
+	@ImageProfil varchar(MAX)
 AS
 BEGIN
 	UPDATE Usagers
@@ -18,6 +19,7 @@ BEGIN
 		   Telephone = @Telephone,
 		   [Password] = @Password,
 		   Adresse = @Adresse,
-		   Age = @Age
+		   Age = @Age,
+		   ImageProfil = @ImageProfil
 	WHERE Id = @Id;
 END

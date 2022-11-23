@@ -64,6 +64,7 @@ namespace Api.Controllers
                 Password = usager.Password,
                 Telephone = usager.Telephone,
                 Age = 0,
+                ImageProfil = usager.ImageProfil,
                 IdRole = newUserRole.Id,
             });
         }

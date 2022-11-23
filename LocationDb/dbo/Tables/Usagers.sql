@@ -8,7 +8,7 @@
 	Telephone varchar(15) NOT NULL,
 	[Password] Varchar(100) NOT NULL,
 	Adresse Varchar(100) NOT NULL,
-
 	[Age] INT NULL, 
+	ImageProfil varchar(MAX) NULL
     PRIMARY KEY (Id)
 )
