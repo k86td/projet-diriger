@@ -67,7 +67,7 @@ namespace Infra.Dal.Implementations
             return await _db.QueryFromSP<RatingRessource, dynamic>("dbo.GetAllSellerRatings", new { id });
         }
 
-        Task<List<RatingRessource>> IRatingsData.GetAllOfferRatings(int id)
+        Task<List<RatingRessource>> IRatingsData.GetAllSellerRatings(int id)
         {
             throw new NotImplementedException();
         }
