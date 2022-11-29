@@ -69,7 +69,6 @@
     <Folder Include="dbo\StoredProcedures\Voitures" />
     <Folder Include="dbo\StoredProcedures\DemandeOffre" />
     <Folder Include="dbo\StoredProcedures\CategorieOffre" />
-    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Views\RemoveMe.sql" />
@@ -131,8 +130,5 @@
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="LocationDb.refactorlog" />
-  </ItemGroup>
-  <ItemGroup>
-    <PostDeploy Include="Scripts\Script.PostDeployment1.sql" />
   </ItemGroup>
 </Project>
