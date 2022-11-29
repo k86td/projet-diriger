@@ -11,5 +11,6 @@ namespace Infra.Ressources
         public int IdVendeur { get; set; }
         public int IdUsager { get; set; }
         public int Rating { get; set; }
+        public string Conversation { get; set; }
     }
 }

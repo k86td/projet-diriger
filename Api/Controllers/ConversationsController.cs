@@ -17,7 +17,7 @@ namespace Api.Controllers
            
         }
         [HttpGet]
-        public async Task<IEnumerable<ConversationsRessource>> Get()
+        public async Task<ICollection<ConversationsRessource>> Get()
         {
             return await _ConversationsData.Get();
         }

@@ -2,6 +2,6 @@
 	@IdVendeur int
 AS
 BEGIN
-	SELECT IdVendeur, IdUsager, Rating FROM dbo.Ratings 
+	SELECT IdVendeur, IdUsager, Rating, Conversation FROM dbo.Ratings 
 	WHERE IdVendeur = @IdVendeur;
 END

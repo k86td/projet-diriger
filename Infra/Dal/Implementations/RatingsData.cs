@@ -1,5 +1,6 @@
 ﻿using Infra.Dal.Interfaces;
 using Infra.Ressources;
+using static Dapper.SqlMapper;
 
 namespace Infra.Dal.Implementations
 {
@@ -24,7 +25,8 @@ namespace Infra.Dal.Implementations
             {
                 entity.IdVendeur,
                 entity.IdUsager,
-                entity.Rating
+                entity.Rating,
+                entity.Conversation
             });
             return 0;
         }
@@ -35,7 +37,8 @@ namespace Infra.Dal.Implementations
             {
                 modification.IdUsager,
                 modification.IdVendeur,
-                modification.Rating
+                modification.Rating,
+                modification.Conversation
             });
         }
 
