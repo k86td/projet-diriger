@@ -10,13 +10,14 @@ Modèle de script de post-déploiement
 --------------------------------------------------------------------------------------
 */
 
+
 USE LocationDb;
-GO;
+
 
 -- insert roles
 INSERT INTO dbo.Roles (Id, Nom)
 VALUES (2, 'Admin');
-GO;
+
 
 /*INSERT INTO dbo.Roles (Id, Nom)
 VALUES (2002, 'User');*/
@@ -24,7 +25,6 @@ VALUES (2002, 'User');*/
 -- insert types
 INSERT INTO dbo.TypesOffres (Id, Nom)
 VALUES (1, 'Voiture');
-GO;
 
 -- insert categories
 INSERT INTO dbo.CategoriesOffres (Id, IdType, Nom)
@@ -35,4 +35,4 @@ INSERT INTO dbo.CategoriesOffres (Id, IdType, Nom)
 VALUES (3, 1, 'Berline');
 INSERT INTO dbo.CategoriesOffres (Id, IdType, Nom)
 VALUES (4, 1, 'Hatchback');
-GO;
+
