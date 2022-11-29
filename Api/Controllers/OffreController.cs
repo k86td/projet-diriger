@@ -39,9 +39,13 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ICollection<OffreRessource>> Get ([FromQuery] int[] typeId, [FromQuery] int?[] categorieId, [FromQuery] double? latCent, [FromQuery] double? lonCent, [FromQuery] int? range)
+        public async Task<ICollection<OffreRessource>> Get ([FromQuery] int? idOffre = null, [FromQuery] int[]? typeId = null, [FromQuery] int?[]? categorieId = null, [FromQuery] double? latCent = null, [FromQuery] double? lonCent = null, [FromQuery] int? range = null)
         {
             ICollection<OffreRessource> offres = await _offreData.Get();
+
+            if (idOffre != null)
+                offres = offres.Where(o => o.Id == idOffre).ToList();
+            
             if (latCent != null && lonCent != null && range != null)
             {
                 offres = offres.Where(o =>
@@ -53,9 +57,9 @@ namespace Api.Controllers
                  <= range)
                 .ToList();
             }
-            if (typeId.Length > 0)
+            if (typeId != null && typeId.Length > 0)
                 offres = offres.Where(o => typeId.Contains(o.IdTypeOffre)).ToList();
-            if (categorieId?.Length > 0)
+            if (categorieId != null && categorieId?.Length > 0)
                 offres = offres.Where(o => categorieId.Contains(o.IdCategorieOffre)).ToList();
 
             return offres;

@@ -32,9 +32,14 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<VoitureRessource>> Get()
+        public async Task<IEnumerable<VoitureRessource>> Get(int? idOffre = null)
         {
-            return await _voitureData.Get();
+            var voitures = await _voitureData.Get();
+
+            if (idOffre != null)
+                return voitures.Where(v => v.IdOffre == idOffre).ToList();
+
+            return voitures;
         }
 
         [HttpGet("{id}")]
