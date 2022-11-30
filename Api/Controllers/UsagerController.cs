@@ -94,7 +94,7 @@ namespace Api.Controllers
                 Prenom = usagerEdit.Prenom,
                 Nom = usagerEdit.Nom,
                 Telephone = usagerEdit.Telephone,
-                Age = usagerEdit.Age
+                Age = 0
             };
             
             usager.Password = user.Password;
